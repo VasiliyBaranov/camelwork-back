@@ -1,0 +1,35 @@
+camel:
+  component:
+    servlet:
+      mapping:
+        contextPath: /rest/*
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/camelwork_db
+    username: postgres
+    password: admin
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+      hibernate.jdbc.batch_size: 20
+      hibernate.cache.use_query_cache: false
+      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_structured_entries: false
+      hibernate.cache.use_minimal_puts: false
+
+
+logging:
+  config: classpath:logback.xml
+
+storage:
+  prepareFolderPath: //C:/JavaProjects/camelwork-back/files/prepareFolderPath
+  workFolderPath: //C:/JavaProjects/camelwork-back/files/workFolderPath
+
+scheduled:
+  scanWork: ${SCAN_WORK_TIME:1000}
