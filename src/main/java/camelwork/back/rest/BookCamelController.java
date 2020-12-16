@@ -53,8 +53,10 @@ public class BookCamelController extends RouteBuilder {
                 .endRest()
 
                 .post("/").route()
-                .marshal().json()
+                .marshal()
+                .json()
                 .unmarshal(getJacksonDataFormat(PhoneBook.class))
+
                 .to("direct:savePhoneBook")
                 .endRest()
 

@@ -26,8 +26,9 @@ public class PhoneBookProcessor implements Processor {
         if (phoneBook == null)
             phoneBook = new PhoneBook();
         phoneBook.setFirstName(phoneBook.getFirstName());
-        phoneBook.setLastName(phoneBook.getFirstName());
+        phoneBook.setLastName(phoneBook.getLastName());
         phoneBook.setBirthDate(phoneBook.getBirthDate());
+        phoneBook.setWorkPhone(phoneBook.getWorkPhone());
         phoneBook.setMobilePhone(phoneBook.getMobilePhone());
         phoneBook.setEmail(phoneBook.getEmail());
         exchange.getIn().setBody(phoneBook);

@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "id": "my-schema",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "firstName": {
+      "type": "string",
+      "maxLength": 9
+    },
+    "lastName": {
+      "type": "string",
+      "maxLength": 19
+    },
+    "mobilePhone": {
+      "type": "string",
+      "maxLength": 19
+    },
+    "birthDate": {
+      "type": "string",
+      "maxLength": 19
+    },
+    "email": {
+      "type": "string",
+      "maxLength": 19
+    }
+  },
+  "required": [
+    "firstName",
+    "lastName",
+    "mobilePhone"
+  ],
+  "type": "object"
+}

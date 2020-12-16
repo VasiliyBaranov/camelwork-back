@@ -1,5 +1,7 @@
 package camelwork.back.kernel.model.phonebook;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.camel.Exchange;
 import org.apache.camel.Message;
@@ -18,6 +20,9 @@ public class PhoneBookDataFormat implements DataFormat {
     public void marshal(Exchange exchange, Object graph, OutputStream stream) throws NoTypeConversionAvailableException, IOException {
         PhoneBook s = exchange.getContext().getTypeConverter().mandatoryConvertTo(PhoneBook.class, graph);
         ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        objectMapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
         byte[] bytes = objectMapper.writeValueAsString(s).getBytes();
         IOUtils.write(bytes, stream);
     }

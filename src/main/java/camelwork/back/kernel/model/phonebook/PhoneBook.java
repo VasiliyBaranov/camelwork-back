@@ -21,6 +21,8 @@ public class PhoneBook {
     private String lastName;
     private String firstName;
     private String mobilePhone;
+    private String workPhone;
     private String email;
     private String birthDate;
+    private String work;
 }

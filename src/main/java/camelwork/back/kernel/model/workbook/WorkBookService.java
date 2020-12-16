@@ -21,6 +21,10 @@ public class WorkBookService {
         return repository.findWorkBookByFirstName(name);
     }
 
+    public WorkBook findWorkBookByFirstNameAndLastName(String firstName, String lastName) {
+        return repository.findWorkBookByFirstNameAndLastName(firstName, lastName);
+    }
+
     public WorkBook addWorkBook(WorkBook book) {
         return repository.save(book);
     }

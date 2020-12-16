@@ -14,7 +14,7 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
       hibernate.jdbc.batch_size: 20
@@ -28,8 +28,16 @@ logging:
   config: classpath:logback.xml
 
 storage:
-  prepareFolderPath: //C:/JavaProjects/camelwork-back/files/prepareFolderPath
-  workFolderPath: //C:/JavaProjects/camelwork-back/files/workFolderPath
+  prepareFolderPath: ./files/prepare
+  workFolderPath: ./files/work
+  dataFolderPath: ./files/data
 
-scheduled:
-  scanWork: ${SCAN_WORK_TIME:1000}
+validate:
+  jsonSchema: classpath:sschema_validate.json
+#storage:
+#  prepareFolderPath: //C:/JavaProjects/camelwork-back/files/prepare
+#  workFolderPath: //C:/JavaProjects/camelwork-back/files/work
+#  dataFolderPath: //C:/JavaProjects/camelwork-back/files/data
+
+scheduler:
+  scanWork: 10000
