@@ -2,10 +2,8 @@ package camelwork.back.kernel.route;
 
 
 import camelwork.back.config.ObjectMapperConfig;
-import camelwork.back.kernel.model.phonebook.JSONDataFormat;
 import camelwork.back.kernel.model.phonebook.PhoneBookDataFormat;
 import camelwork.back.kernel.model.phonebook.PhoneBookService;
-import camelwork.back.kernel.processor.JsonProcessor;
 import camelwork.back.kernel.processor.PhoneBookProcessor;
 import lombok.AllArgsConstructor;
 import org.apache.camel.builder.RouteBuilder;
@@ -62,10 +60,8 @@ public class PhoneBookRoute extends RouteBuilder {
 
     private void scanningStorage() {
         from("direct:scanningStorage")
-
-                .log("Received Body ---------------------------------------- ${header.name}")
+                .log("Received Body  ${header.name}")
                 .pollEnrich("file:{{storage.prepareFolderPath}}?idempotent=true&noop=true")
-                //.exchange.setExchangeId(exchange.getExchangeId() + "-myid-" + exchange.getIn().getBody())
                 .routeId("scanningStorage")
                 .unmarshal(new PhoneBookDataFormat());
     }

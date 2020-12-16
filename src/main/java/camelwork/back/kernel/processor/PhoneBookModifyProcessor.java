@@ -30,7 +30,7 @@ public class PhoneBookModifyProcessor implements Processor {
         if (phoneBook != null) {
             WorkBook workBook = workBookService.findWorkBookByFirstNameAndLastName(phoneBook.getFirstName(), phoneBook.getLastName());
             phoneBook.setFirstName(phoneBook.getFirstName());
-            phoneBook.setLastName(phoneBook.getFirstName());
+            phoneBook.setLastName(phoneBook.getLastName());
             phoneBook.setBirthDate(phoneBook.getBirthDate());
             phoneBook.setMobilePhone(phoneBook.getMobilePhone());
             phoneBook.setEmail(phoneBook.getEmail());
